@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mirelist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="appContainer">
+        <header id="dragHandle" class="drag-handle">
+            <h1>👾 your tasks</h1>
+            <button id="themeBtn" class="theme-toggle" aria-label="Customize theme">🌓</button>
+        </header>
+
+        <!-- Theme Customization Panel -->
+        <div id="themePanel" class="theme-panel hidden">
+            <h3>customize your lair</h3>
+            
+            <div class="preset-themes">
+                <button class="preset-btn" data-theme="moss">moss & ink</button>
+                <button class="preset-btn" data-theme="midnight">midnight bog</button>
+                <button class="preset-btn" data-theme="stone">stone lantern</button>
+            </div>
+
+            <div class="custom-colors">
+                <h4>custom colors</h4>
+                <div class="color-input-group">
+                    <label for="bgColor">background</label>
+                    <input type="color" id="bgColor">
+                </div>
+                <div class="color-input-group">
+                    <label for="panelColor">panel</label>
+                    <input type="color" id="panelColor">
+                </div>
+                <div class="color-input-group">
+                    <label for="accentColor">accent</label>
+                    <input type="color" id="accentColor">
+                </div>
+                <div class="color-input-group">
+                    <label for="textColor">text</label>
+                    <input type="color" id="textColor">
+                </div>
+                <button id="applyCustom" class="apply-btn">apply custom</button>
+            </div>
+
+            <button id="closeTheme" class="close-btn">close</button>
+        </div>
+
+        <!-- Add Task Section -->
+        <div class="add-task-section">
+            <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="what mischief shall we do today..."
+                aria-label="new task"
+            >
+            <button id="addTaskBtn" class="add-btn">add</button>
+            <div id="validationMsg" class="validation-msg hidden">task can't be empty</div>
+        </div>
+
+        <!-- Active Tasks -->
+        <div class="tasks-section">
+            <h2>active quests</h2>
+            <div id="activeTasks" class="task-list">
+                <div class="empty-state">it's very quiet around... let's #lockin</div>
+            </div>
+        </div>
+
+        <!-- Archive Section -->
+        <div class="archive-section">
+            <button id="archiveToggle" class="archive-toggle">
+                <span class="toggle-icon">▶</span>
+                <span>archive (<span id="archiveCount">0</span>)</span>
+            </button>
+            <div id="archiveContent" class="archive-content hidden">
+                <div id="archivedTasks" class="task-list">
+                    <div class="empty-state">nothing tucked away yet...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
